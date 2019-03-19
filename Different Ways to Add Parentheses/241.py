@@ -14,6 +14,6 @@ class Solution:
 							return_list.append(l - r)
 						elif c == '*':
 							return_list.append(l * r)
-		if not return_list:
-			return_list.append(int(input))
-		return return_list
+	if not return_list:
+		return_list.append(int(input))
+	return return_list
