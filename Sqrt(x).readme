@@ -20,16 +20,48 @@ l + h 可能出现加法溢出，最好使用第二种方式。
 
 
 class Solution:
-	def mySqrt(self, x: int) -> int:
-		if x <= 1:
-			return x
-		l, h = 0, x
-		while l <= h:
-			m = math.floor(l + (h - l) / 2)
-			if x / m > m:
-				l = m + 1
-			elif x / m < m:
-				h = m - 1
-			elif x / m == m:
-				return m
-	return h
+    def mySqrt(self, x: int) -> int:
+	if x <= 1:
+	    return x
+	l, h = 0, x
+	while l <= h:
+	    m = math.floor(l + (h - l) / 2)
+	if x / m > m:
+	    l = m + 1
+	elif x / m < m:
+	    h = m - 1
+	elif x / m == m:
+	    return m
+    return h
+
+不调用math
+def sqrt2(x):
+    if x > 1:
+        a = 1.0
+        b = x
+    else:
+        a = x
+        b = 1.0
+    y = (a + x)/2
+    while abs(y * y - x) > 1e-6:
+        if y * y > x:
+            b = y
+            y = (y + a) /2
+        else:
+            a = y
+            y = (y + b) /2
+    return y 
+    
+方法2：python自带运算 / math.sqrt / pow(x,0.5)
+return int(x**0.5)
+
+
+方法3：牛顿展开
+
+def sqrt1(x):
+    y = 1.0
+    while abs(y * y - x) > 1e-6:
+        y = (y + x/y)/2
+    return y
+
+
