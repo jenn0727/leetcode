@@ -1,0 +1,9 @@
+方法1：双指针 时间复杂度O(NlogN) 空间复杂度O(1)
+
+方法2：哈希表
+def two_sum(nums,target):
+    dic={}
+    for i in range(len(nums)):
+        if target - nums[i] in dic:
+            return [dic[target-nums[i]], i]
+        dic[nums[i]]=i 
