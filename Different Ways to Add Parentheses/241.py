@@ -17,3 +17,4 @@ class Solution:
 	if not return_list:
 		return_list.append(int(input))
 	return return_list
+
